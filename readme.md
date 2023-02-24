@@ -3,3 +3,8 @@
 ### classification 
 ### regression
 
+##Run
+```python
+py gui.py
+
+```
