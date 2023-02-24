@@ -1,3 +1,4 @@
+from .parent import Accuracy
 class Accuracy_Regression(Accuracy):
     def __init__(self):
         # Create precision property

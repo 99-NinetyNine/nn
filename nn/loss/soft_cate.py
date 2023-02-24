@@ -1,3 +1,6 @@
+import numpy as np
+from .parent import Loss
+
 class Activation_Softmax_Loss_CategoricalCrossentropy():
     # Backward pass
     def backward(self, dvalues, y_true):

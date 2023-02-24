@@ -1,4 +1,5 @@
 # Accuracy calculation for classification model
+from .parent import Accuracy
 class Accuracy_Categorical(Accuracy):
     # No initialization is needed
     def init(self, y):

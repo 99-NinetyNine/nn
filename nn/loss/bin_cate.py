@@ -1,3 +1,5 @@
+import numpy as np
+from .parent import Loss
 class Loss_BinaryCrossentropy(Loss):
     # Forward pass
     def forward(self, y_pred, y_true):

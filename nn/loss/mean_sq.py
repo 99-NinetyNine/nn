@@ -1,7 +1,11 @@
-class Loss_MeanAbsoluteError(Loss): # L1 loss
+import numpy as np
+from .parent import Loss
+# Mean Squared Error loss
+class Loss_MeanSquaredError(Loss): # L2 loss
+    # Forward pass
     def forward(self, y_pred, y_true):
         # Calculate loss
-        sample_losses = np.mean(np.abs(y_true - y_pred), axis=-1)
+        sample_losses = np.mean((y_true - y_pred)**2, axis=-1)
         # Return losses
         return sample_losses
 
@@ -12,8 +16,8 @@ class Loss_MeanAbsoluteError(Loss): # L1 loss
         # Number of outputs in every sample
         # We'll use the first sample to count them
         outputs = len(dvalues[0])
-        # Calculate gradient
-        self.dinputs = np.sign(y_true - dvalues) / outputs
+        # Gradient on values
+        self.dinputs = -2 * (y_true - dvalues) / outputs
         # Normalize gradient
         self.dinputs = self.dinputs / samples
-        # Common accuracy class
+        # Mean Absolute Error loss
